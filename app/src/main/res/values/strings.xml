@@ -5,8 +5,11 @@
     <string name="first_fragment_label">Welcome</string>
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Tap to Start</string>
-    <string name="previous">Home</string>
+    <string name="previous">START</string>
 
     <string name="hello_first_fragment">Welcome to Gas Station</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <string name="gallons_initial_value">0.00</string>
+    <string name="price_initial_value">$0.00</string>
 </resources>
