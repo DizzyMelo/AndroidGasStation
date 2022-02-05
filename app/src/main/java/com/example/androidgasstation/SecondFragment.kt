@@ -59,6 +59,7 @@ class SecondFragment : Fragment() {
         val mAction: Runnable = object : Runnable {
             override fun run() {
                 (mContext as Activity).runOnUiThread {
+//                    Update the UI in a another thread
                     total += Metrics.AMOUNT_SPEED_RATIO
                     binding.textviewGallons.text = String.format("%.2f", ( total)) + " gal"
                     binding.textviewPrice.text   = "$" + String.format("%.2f", (gas.price * total))
@@ -70,12 +71,15 @@ class SecondFragment : Fragment() {
         binding.textviewGas.text = gas.name
 
         binding.buttonSecond.setOnClickListener {
+//            Invert the value of the fueling variable
             fueling = !fueling
 
             if (fueling) {
+//                change the button text
                 binding.buttonSecond.text = "STOP"
                 mHandler.postDelayed(mAction, 150)
             }else{
+//                change the button text
                 binding.buttonSecond.text = "START"
                 mHandler.removeCallbacksAndMessages(null)
             }

@@ -45,15 +45,17 @@ class FirstFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+//        Select the list UI
         listView = _binding?.root!!.findViewById(R.id.listview_gas_type)
-
+//        Instantiate the Adapter
         val adapter = GasOptionAdaper(mContext, Gas.gasOptions)
         listView.adapter = adapter
 
+//        Navigate to second screen
         listView.setOnItemClickListener { parent, view, position, id ->
             val bundle = Bundle()
+//            Add the position of the item selected.
             bundle.putInt("position", position)
-            bundle.putString("gas", "Test")
             findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment, bundle)
         }
 
