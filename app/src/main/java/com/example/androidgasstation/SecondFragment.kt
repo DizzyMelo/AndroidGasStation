@@ -30,15 +30,7 @@ class SecondFragment : Fragment() {
     private val binding get() = _binding!!
 
     var total = 0.0
-    val gas = Gas(1, "Unleaded", 3.50)
 
-    var fuel = Thread(Runnable {
-        while (true) {
-
-        }
-    })
-
-    lateinit var rootView: View
     lateinit var mContext: Context
 
     var mHandler = Handler(Looper.getMainLooper())
@@ -52,7 +44,7 @@ class SecondFragment : Fragment() {
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-
+        print(arguments?.getInt("position"))
         _binding = FragmentSecondBinding.inflate(inflater, container, false)
         return binding.root
 
@@ -61,44 +53,34 @@ class SecondFragment : Fragment() {
     @SuppressLint("ClickableViewAccessibility")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val position = arguments?.getInt("position")
+        val gas = Gas.gasOptions[position!!]
         val mAction: Runnable = object : Runnable {
             override fun run() {
                 (mContext as Activity).runOnUiThread {
-                    Thread.sleep(Metrics.PUMPER_SPEED.toLong())
                     total += Metrics.AMOUNT_SPEED_RATIO
-
-                    println(String.format("%.2f", ( total)) + " gal" + " - $" + String.format("%.2f", (gas.price * total)))
-
                     binding.textviewGallons.text = String.format("%.2f", ( total)) + " gal"
-                    binding.textviewPrice.text   = " - $" + String.format("%.2f", (gas.price * total))
+                    binding.textviewPrice.text   = "$" + String.format("%.2f", (gas.price * total))
                 }
-                mHandler.postDelayed(this, 500)
+                mHandler.postDelayed(this, Metrics.PUMPER_SPEED.toLong())
             }
         }
+
+        binding.textviewGas.text = gas.name
 
         binding.buttonSecond.setOnClickListener {
             fueling = !fueling
 
             if (fueling) {
+                binding.buttonSecond.text = "STOP"
                 mHandler.postDelayed(mAction, 150)
             }else{
+                binding.buttonSecond.text = "START"
                 mHandler.removeCallbacksAndMessages(null)
             }
 
         }
-
-//        binding.buttonSecond.setOnTouchListener { v, event ->
-//
-//
-//            when (event?.action) {
-//                MotionEvent.ACTION_DOWN -> mHandler.postDelayed(mAction, 150)
-//                MotionEvent.ACTION_UP -> {
-//                    mHandler.removeCallbacks(mAction)
-//                }
-//            }
-//
-//            v?.onTouchEvent(event) ?: true
-//        }
     }
 
     override fun onDestroyView() {

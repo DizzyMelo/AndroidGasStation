@@ -9,7 +9,10 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.ArrayAdapter
+import android.widget.ListView
 import com.example.androidgasstation.databinding.ActivityMainBinding
+import com.example.androidgasstation.entities.Gas
 
 class MainActivity : AppCompatActivity() {
 

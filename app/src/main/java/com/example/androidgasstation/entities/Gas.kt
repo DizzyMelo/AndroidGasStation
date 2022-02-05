@@ -20,4 +20,8 @@ class Gas (private val gasID: Int, private val gasName: String, private val gasP
 
         @JvmStatic val gasOptions = arrayOf(unleaded, regular, special, premium)
     }
+
+    override fun toString(): String {
+        return "Gas(gasName='$gasName', gasPrice=$gasPrice)"
+    }
 }

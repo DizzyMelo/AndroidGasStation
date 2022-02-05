@@ -6,11 +6,26 @@
     android:layout_height="match_parent"
     tools:context=".SecondFragment">
 
+
+    <TextView
+        android:id="@+id/textview_gas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/gas_initial_value"
+        android:textSize="25dp"
+        android:fontFamily="@font/orbitron_bold"
+        app:layout_constraintBottom_toTopOf="@id/textview_gallons"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/textview_gallons"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/gallons_initial_value"
+        android:textSize="20dp"
+        android:fontFamily="@font/orbitron_regular"
         app:layout_constraintBottom_toTopOf="@id/button_second"
         app:layout_constraintEnd_toEndOf="@id/textview_price"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,6 +36,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/price_initial_value"
+        android:textSize="20dp"
+        android:fontFamily="@font/orbitron_regular"
         app:layout_constraintBottom_toTopOf="@id/button_second"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/textview_gallons"
