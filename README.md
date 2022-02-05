@@ -4,7 +4,7 @@ This app emulates a gas pump machine, where user can select the gas option and s
 
 This app is intended to show how to create Android mobile apps with kotlin and Android Studio.
 
-You can watch the software demo here: [Software Demo Video](https://youtu.be/-TYg-sXErUk)
+You can watch the software demo here: [Software Demo Video](https://youtu.be/wrO1dI81GJQ)
 
 # Development Environment
 
